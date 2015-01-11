@@ -1,0 +1,43 @@
+﻿<Window x:Class="MarketAnalyzer.Windows.UI.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:chart="http://sparrowtoolkit.codeplex.com/wpf"
+        Title="MainWindow" Height="300" Width="525">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        
+        <TextBlock Grid.Row="1" Grid.Column="0" VerticalAlignment="Center" Text="Symbol 1"></TextBlock>
+        <TextBlock Grid.Row="2" Grid.Column="0" VerticalAlignment="Center" Text="Symbol 2"></TextBlock>
+        <TextBlock Grid.Row="3" Grid.Column="0" VerticalAlignment="Center" Text="From Date"></TextBlock>
+        <TextBlock Grid.Row="4" Grid.Column="0" VerticalAlignment="Center" Text="To Date"></TextBlock>
+
+        <TextBox Text="{Binding Model.StockSymbol1}" VerticalAlignment="Center" Grid.Row="1" Grid.Column="1"></TextBox>
+        <TextBox Text="{Binding Model.StockSymbol2}" VerticalAlignment="Center" Grid.Row="2" Grid.Column="1"></TextBox>
+        <TextBox Text="{Binding Model.FromDate, StringFormat=d}" VerticalAlignment="Center" Grid.Row="3" Grid.Column="1"></TextBox>
+        <TextBox Text="{Binding Model.ToDate, StringFormat=d}" VerticalAlignment="Center" Grid.Row="4" Grid.Column="1"></TextBox>
+
+        <Button Command="{Binding GetStockCorrelation}" Content="Get Correlation" Grid.Row="5" Grid.ColumnSpan="3" Width="120" Height="35"></Button>
+         
+        <GroupBox Header="Results" Grid.Column="2" Grid.RowSpan="5" Height="150">
+
+            <StackPanel VerticalAlignment="Center">
+                <TextBlock Text="Correlation:" FontWeight="Bold"></TextBlock>
+                <TextBlock Text="{Binding Model.Result.Correlation, StringFormat={}{0}%}" 
+                       FontWeight="Bold" ></TextBlock>
+            </StackPanel>
+            
+        </GroupBox>
+    </Grid>
+</Window>

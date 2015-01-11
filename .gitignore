@@ -1,0 +1,6 @@
+packages/
+MarketAnalyzer.Windows.UI/bin/
+MarketAnalyzer.Windows.UI/obj/
+MarketAnalyzer.Core/bin/
+*.suo
+MarketAnalyzer.Core/obj/
