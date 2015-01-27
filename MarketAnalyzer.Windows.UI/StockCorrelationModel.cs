@@ -43,7 +43,7 @@ namespace MarketAnalyzer.Windows.UI
         }
         public void Calculate()
         {
-            Deedle.Frame<string, string> correlation = MarketAnalyzer.Core.StockAnalysis.getStockCorrellation(this.StockSymbol1, this.StockSymbol2, this.FromDate, this.ToDate);
+            Deedle.Frame<string, string> correlation = MarketAnalyzer.Core.StockAnalysis.getStockCorrellation(new []{this.StockSymbol1, this.StockSymbol2}, this.FromDate, this.ToDate);
             CorrelatedStockResult result = new CorrelatedStockResult();
             result.Symbol1 = correlation.ColumnKeys.First();
             result.Symbol2 = correlation.ColumnKeys.Last();
